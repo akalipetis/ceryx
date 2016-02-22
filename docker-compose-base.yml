@@ -1,0 +1,12 @@
+proxy:
+  build: proxy
+  ports:
+   - "8888:80"
+   - "5555:5555"
+api:
+  build: api
+  environment:
+  net: 'container:proxy'
+redis:
+  image: redis
+  net: 'container:proxy'
